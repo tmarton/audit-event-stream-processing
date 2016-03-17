@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Persistence deployment descriptor for dev profile -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+    <persistence-unit name="AuditEventPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <mapping-file>filter.xml</mapping-file>
+        <class>com.siemens.dxt.persistence.AuditMessage</class>
+        <class>com.siemens.dxt.persistence.AuditMessageAddition</class>
+        <class>com.siemens.dxt.persistence.ExtensionBase</class>
+        <class>com.siemens.dxt.persistence.IdentificationExtension</class>
+        <class>com.siemens.dxt.persistence.OriginalMessage</class>
+        <class>com.siemens.dxt.persistence.What</class>
+        <class>com.siemens.dxt.persistence.WhatDetail</class>
+        <class>com.siemens.dxt.persistence.WhatExtension</class>
+        <class>com.siemens.dxt.persistence.WhereFromExtension</class>
+        <class>com.siemens.dxt.persistence.WhoExtension</class>
+        <class>com.siemens.dxt.persistence.digest.AuditEvent</class>
+        <class>com.siemens.dxt.persistence.dim.BaseDimension</class>
+        <class>com.siemens.dxt.persistence.dim.MessageDimension</class>
+        <class>com.siemens.dxt.persistence.dim.EventDimension</class>
+        <class>com.siemens.dxt.persistence.dim.MessageDimensionType</class>
+        <class>com.siemens.dxt.persistence.dim.EventDimensionType</class>
+        <class>com.siemens.dxt.persistence.ContextRecord</class>
+        <class>com.siemens.dxt.persistence.ContextRecordApproval</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:jtds:sqlserver://192.168.204.29:1433/DXT_60_DATA" />
+            <property name="javax.persistence.jdbc.user" value="dxt" />
+            <property name="javax.persistence.jdbc.password" value="dxt" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+            <property name="hibernate.archive.autodetection" value="class, hbm"/>
+        </properties>
+    </persistence-unit>
+</persistence>

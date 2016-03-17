@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <filter-def condition="((USER_ID = :a_userId and (PERMISSION &amp; :a_permission_owner) &gt; 0) or (GROUP_ID in (:a_gid) and (PERMISSION &amp; :a_permission_group) &gt; 0) or (PERMISSION &amp; :a_permission_other) &gt; 0 )" name="cfgTreeItemPermFilter">
+    <filter-param name="a_userId" type="string"/>
+    <filter-param name="a_gid" type="string"/>
+    <filter-param name="a_permission_owner" type="integer"/>
+    <filter-param name="a_permission_group" type="integer"/>
+    <filter-param name="a_permission_other" type="integer"/>
+  </filter-def>
+  <filter-def condition="(UPPER(sensitivity) != UPPER(:a_eventSensitivity) or sensitivity is null)" name="eventSensitivityFilter">
+    <filter-param name="a_eventSensitivity" type="string"/>
+  </filter-def>
+</hibernate-mapping>

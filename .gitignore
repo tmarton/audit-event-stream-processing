@@ -1,0 +1,10 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+
+src/main/resources/dxt-db-schema-6.0.jar
+
+# Maven
+log/
+target/

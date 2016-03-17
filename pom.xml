@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.atos.tmarton</groupId>
+    <artifactId>audit-event-io-utils</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <dxt-version>6.0</dxt-version>
+        <dxt-spring-version>4.2.5.RELEASE</dxt-spring-version>
+        <dxt-hibernate-entitymanager-version>4.3.11.Final</dxt-hibernate-entitymanager-version>
+        <dxt-jackson-version>2.5.4</dxt-jackson-version>
+        <dxt-jtds-version>1.3.1</dxt-jtds-version>
+        <dxt-apache-commons-version>2.3</dxt-apache-commons-version>
+        <dxt-slf4j-version>1.7.18</dxt-slf4j-version>
+    </properties>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${dxt-spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${dxt-spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${dxt-spring-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${dxt-hibernate-entitymanager-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${dxt-jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${dxt-apache-commons-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>${dxt-jtds-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${dxt-slf4j-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.espertech</groupId>
+            <artifactId>esper</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
+        <!-- DirX Audit Dependencies -->
+        <dependency>
+            <groupId>com.dirxcloud.audit.common.persistence</groupId>
+            <artifactId>dxt-db-schema</artifactId>
+            <version>${dxt-version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/dxt-db-schema-6.0.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
